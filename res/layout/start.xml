@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="@drawable/bg"
+      android:id="@+id/root"
+      android:stretchColumns="*">
+      
+  <TableRow 
+         	android:id="@+id/first_row"
+         	android:layout_marginTop="10dip"
+         	android:layout_marginLeft="10dip"
+         	android:layout_marginRight="10dip"
+         	>
+    <Button android:id="@+id/notifications" 
+          android:layout_width="0dip"
+          android:layout_weight="1"
+          android:background="@drawable/a"
+           />
+    <Button android:id="@+id/events" 
+          android:layout_width="0dip"
+          android:layout_weight="1"
+          android:background="@drawable/b"
+           />
+  </TableRow>
+  
+</TableLayout>

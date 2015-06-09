@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.ac.nith.digitalportal"
+    android:versionCode="1"
+    android:versionName="1.0"
+     >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+	
+     <!-- GCM connects to Internet Services. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <permission
+        android:name="com.example.exe.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.exe.permission.C2D_MESSAGE" />
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!-- Network State Permissions to detect Internet status -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permission to vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="NithPortal"
+        android:theme="@style/AppTheme" 
+        >
+ 
+         <activity
+            android:name="in.ac.nith.digitalportal.Main"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+         </activity>
+        
+         <activity
+            android:name="in.ac.nith.digitalportal.Notifications"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.Notifications" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name="in.ac.nith.digitalportal.SQLView"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.SQLView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="in.ac.nith.digitalportal.TimeTableView"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.TimeTableView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+       
+        
+        <!-- New Contacts Activity -->
+        <activity
+            android:name="in.ac.nith.digitalportal.Credits"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.Credits" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+      
+        <activity
+            android:name="in.ac.nith.digitalportal.AsyncTableView"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.AsyncTableView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="in.ac.nith.digitalportal.About"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.About" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        
+        <!-- Single List Item View -->
+        <activity
+            android:label="Single Menu Item"
+            android:name="in.ac.nith.digitalportal.SingleMenuItemContacts"
+            android:theme="@android:style/Theme.Black" 
+            android:screenOrientation="portrait"
+             >
+             <intent-filter>
+                <action android:name="in.ac.nith.digitalportal.SingleMenuItemContacts" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Main Activity -->
+        <activity
+            android:name=".DemoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name" >
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.example.exe" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+        
+    </application>
+
+</manifest>
